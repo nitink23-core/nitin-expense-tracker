@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expense Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>💸 Expense Tracker</h1><button class="ib" id="theme" aria-label="Toggle theme">◐ Theme</button></div>
+<div class="sum">
+<div class="card"><small>Balance</small><b id="bal">0</b></div>
+<div class="card"><small>Income</small><b class="inc" id="inc">0</b></div>
+<div class="card"><small>Expenses</small><b class="exp" id="exp">0</b></div>
+</div>
+<div class="main">
+<div class="col">
+<div class="card"><h2 id="ft">Add transaction</h2>
+<form id="f" novalidate>
+<div class="seg"><button type="button" data-t="expense" class="on">Expense</button><button type="button" data-t="income">Income</button></div>
+<label>Description<input id="d" maxlength="40" placeholder="e.g. Groceries"></label>
+<div class="row"><label>Amount<input id="a" type="number" step="0.01" min="0" placeholder="0.00"></label>
+<label>Date<input id="dt" type="date"></label></div>
+<label>Category<select id="c"></select></label>
+<p class="err" id="e" role="alert"></p>
+<button class="btn" type="submit" id="sb">Add transaction</button>
+<button class="btn ghost" type="button" id="cancel" hidden>Cancel edit</button>
+</form></div>
+<div class="card"><h2>Monthly budget</h2>
+<label>Expense limit for selected month<input id="bl" type="number" min="0" placeholder="e.g. 20000"></label>
+<div class="track budget" id="bt"><i style="width:0"></i></div><p class="err" id="bm" style="color:var(--muted)"></p></div>
+</div>
+<div class="col">
+<div class="card"><h2>Transactions</h2>
+<div class="filters">
+<input id="q" placeholder="Search…" aria-label="Search">
+<select id="ft1" aria-label="Type"><option value="all">All types</option><option value="income">Income</option><option value="expense">Expense</option></select>
+<select id="fc" aria-label="Category"></select>
+<input id="fm" type="month" aria-label="Month">
+</div>
+<ul id="list"></ul></div>
+<div class="card"><h2>Spending by category</h2><div id="chart"></div></div>
+</div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
